@@ -87,6 +87,10 @@
       <li><strong>Security check.</strong> When you sign up, sign in, reset your password or confirm your password,
         Cloudflare Turnstile checks that you’re a person and not an automated program. It looks at information
         about your phone and its connection to do this. It doesn’t use cookies for advertising.</li>
+      <li><strong>Leaked-password check.</strong> When you choose a password, the app checks it against
+        Have I Been Pwned’s list of passwords exposed in data breaches. Your password is never sent: the app
+        sends only the first 5 characters of a one-way scrambled version (a hash) and does the comparison on
+        your phone.</li>
       <li><strong>Crash reports.</strong> If the app crashes or hits an unexpected error, it sends a report so we can fix it:
         the error and where in the app it happened, the screen you were on, your phone’s model and Android version,
         and the app version. Crash reports don’t include your name, email, IP address or what’s in your inventories.</li>
@@ -126,6 +130,7 @@
           <tr><td>Supabase</td><td>Database, sign-in and file storage</td><td>Everything stored by the app</td></tr>
           <tr><td>Resend</td><td>Sending account emails (confirming your email, password resets)</td><td>Your email address and the email</td></tr>
           <tr><td>Cloudflare (Turnstile)</td><td>Checking you’re not a robot</td><td>Information about your phone and connection</td></tr>
+          <tr><td>Have I Been Pwned</td><td>Checking new passwords against known leaks</td><td>The first 5 characters of a password hash (never the password)</td></tr>
           <tr><td>Sentry</td><td>Crash reports</td><td>Error details, phone model, Android and app version</td></tr>
           <tr><td>Expo and Google (Firebase Cloud Messaging)</td><td>Delivering push alerts</td><td>Push tokens and the text of each alert</td></tr>
           <tr><td>RevenueCat</td><td>Managing subscriptions</td><td>Your Shelf Life account ID and purchase details</td></tr>
