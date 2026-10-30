@@ -83,10 +83,18 @@
     <h3>Technical information</h3>
     <p>Like any online service, our hosting provider records basic technical information when the app connects,
       such as IP address, time and the request made. It’s used to run and secure the service.</p>
+    <ul>
+      <li><strong>Security check.</strong> When you sign up, sign in, reset your password or confirm your password,
+        Cloudflare Turnstile checks that you’re a person and not an automated program. It looks at information
+        about your phone and its connection to do this. It doesn’t use cookies for advertising.</li>
+      <li><strong>Crash reports.</strong> If the app crashes or hits an unexpected error, it sends a report so we can fix it:
+        the error and where in the app it happened, the screen you were on, your phone’s model and Android version,
+        and the app version. Crash reports don’t include your name, email, IP address or what’s in your inventories.</li>
+    </ul>
 
     <h3>What we don’t collect</h3>
     <p>We don’t collect your location, contacts, or anything for advertising. The app contains no ads,
-      no analytics and no third-party tracking.</p>
+      no usage analytics and no third-party tracking.</p>
 
     <h2 id="use">How we use it</h2>
     <ul>
@@ -115,7 +123,10 @@
       <table>
         <thead><tr><th scope="col">Provider</th><th scope="col">What for</th><th scope="col">What they process</th></tr></thead>
         <tbody>
-          <tr><td>Supabase</td><td>Database, sign-in, file storage and account emails</td><td>Everything stored by the app</td></tr>
+          <tr><td>Supabase</td><td>Database, sign-in and file storage</td><td>Everything stored by the app</td></tr>
+          <tr><td>Resend</td><td>Sending account emails (confirming your email, password resets)</td><td>Your email address and the email</td></tr>
+          <tr><td>Cloudflare (Turnstile)</td><td>Checking you’re not a robot</td><td>Information about your phone and connection</td></tr>
+          <tr><td>Sentry</td><td>Crash reports</td><td>Error details, phone model, Android and app version</td></tr>
           <tr><td>Expo and Google (Firebase Cloud Messaging)</td><td>Delivering push alerts</td><td>Push tokens and the text of each alert</td></tr>
           <tr><td>RevenueCat</td><td>Managing subscriptions</td><td>Your Shelf Life account ID and purchase details</td></tr>
           <tr><td>Google Play</td><td>App downloads and payments</td><td>Under Google’s own privacy policy</td></tr>
@@ -129,6 +140,7 @@
       <li>Your account and content: until you delete them, or delete your account.</li>
       <li>Group change history: 90 days.</li>
       <li>Push alerts waiting to be sent: up to 7 days.</li>
+      <li>Crash reports: up to 90 days.</li>
       <li>Profile pictures: deleted when you change or remove your picture, or ask to delete your account.</li>
     </ul>
 

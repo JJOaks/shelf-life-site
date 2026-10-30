@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Security check</title>
+  <!-- Used inside the Shelf Life app: Cloudflare Turnstile checks the person
+       isn't a robot and hands the app a one-time token. -->
+  <style>
+    html, body { margin: 0; padding: 0; background: transparent; }
+    body { display: flex; justify-content: center; }
+  </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=ready" async defer></script>
+</head>
+<body>
+  <div id="widget"></div>
+  <script>
+    var params = new URLSearchParams(location.search);
+    function send(message) {
+      if (window.ReactNativeWebView) window.ReactNativeWebView.postMessage(JSON.stringify(message));
+    }
+    function ready() {
+      turnstile.render('#widget', {
+        sitekey: params.get('sitekey') || '',
+        theme: params.get('theme') === 'dark' ? 'dark' : 'light',
+        appearance: 'interaction-only',
+        callback: function (token) { send({ type: 'token', token: token }); },
+        'expired-callback': function () { send({ type: 'expired' }); },
+        'error-callback': function () { send({ type: 'error' }); return true; },
+        'before-interactive-callback': function () { send({ type: 'show' }); },
+        'after-interactive-callback': function () { send({ type: 'hide' }); }
+      });
+    }
+  </script>
+</body>
+</html>
