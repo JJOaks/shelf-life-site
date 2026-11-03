@@ -54,6 +54,9 @@
       <li>Groups, inventories and their settings, and who has access to them.</li>
       <li>Items: names, quantities, units, notes, groupings, barcode numbers and expiry dates.</li>
       <li>A history of changes in each group (for example “Max added Milk”), kept for 90 days.</li>
+      <li>Each group’s list of scanned products (barcode number, name, unit, grouping, usual amount, how long it
+        lasts, and who last updated it), so scanning the same product again fills these in. Items in private
+        inventories aren’t added, and making an inventory private takes its products off the list.</li>
       <li>Invitations you send and receive.</li>
       <li>Reports you send about other people (who, the reason and any details you add), and the people you block.</li>
     </ul>
@@ -78,7 +81,8 @@
     <ul>
       <li><strong>Camera:</strong> used only while you’re scanning a barcode or taking a profile picture.
         Barcodes are read on your phone: no pictures or video of them are saved or sent anywhere, and only the
-        barcode number is kept, if you save it on an item. A profile picture you take is uploaded only if you
+        barcode number is kept, if you save it on an item. If nobody in your groups has scanned that barcode
+        before, the app sends just the barcode number to Open Food Facts to look up the product’s name and size. A profile picture you take is uploaded only if you
         choose to use it, the same as one picked from your photos.</li>
       <li><strong>Photos:</strong> used only when you choose a profile picture. We receive only the picture you pick.</li>
       <li>Both are optional. You can say no, or turn them off later in your phone’s settings.</li>
@@ -145,6 +149,7 @@
         <thead><tr><th scope="col">Provider</th><th scope="col">What for</th><th scope="col">What they process</th></tr></thead>
         <tbody>
           <tr><td>Supabase</td><td>Database, sign-in and file storage</td><td>Everything stored by the app</td></tr>
+          <tr><td>Open Food Facts</td><td>Looking up a product’s name and size when you scan a new barcode</td><td>The barcode number only (like any website, it also sees your IP address)</td></tr>
           <tr><td>Google (Gmail)</td><td>Sending account emails (confirming your email, password resets)</td><td>Your email address and the email</td></tr>
           <tr><td>Cloudflare (Turnstile)</td><td>Checking you’re not a robot</td><td>Information about your phone and connection</td></tr>
           <tr><td>Have I Been Pwned</td><td>Checking new passwords against known leaks</td><td>The first 5 characters of a password hash (never the password)</td></tr>
@@ -161,7 +166,8 @@
     <ul>
       <li>Your account and content: until you delete them, or delete your account.</li>
       <li>Group change history: 90 days.</li>
-      <li>Push alerts waiting to be sent: up to 7 days.</li>
+      <li>A group’s list of scanned products: until the group is deleted.</li>
+      <li>Push alerts: deleted 7 days after they’re sent.</li>
       <li>Offline copies on your phone: until you sign out, or uninstall the app.</li>
       <li>Notifications in the app: deleted 90 days after you’ve read them, and any after a year.</li>
       <li>Crash reports: up to 90 days.</li>
