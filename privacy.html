@@ -64,6 +64,13 @@
         group or inventory names, and nothing from private inventories. A group owner can turn this off for
         their group in Group settings → Product suggestions. Reports that details are wrong are kept with the
         reporter’s account and deleted with it.</li>
+      <li>Each group’s shopping list: what’s on it, amounts, notes, who added each thing and who ticked it off.
+        Ticked-off things are deleted after 30 days, or sooner when someone clears them.</li>
+      <li>What receipt lines turned out to be: when you check a scanned receipt, each line’s printed text (for
+        example “GV 2% MLK GAL”) and the name, unit, amount and shelf life you gave it are remembered for your
+        group, so the next receipt fills in by itself. Lines added to private inventories aren’t remembered.
+        Receipt photos and prices aren’t kept.</li>
+      <li>How many receipts each group has scanned this month (for the plan’s monthly limit), and who scanned them.</li>
       <li>Invitations you send and receive.</li>
       <li>Reports you send about other people (who, the reason and any details you add), and the people you block.</li>
     </ul>
@@ -74,7 +81,9 @@
       <li>Your notification settings, including the hour you want reminders and your time zone,
         so reminders arrive at the right time.</li>
       <li>A push token for each phone you sign in on, so we can send alerts to it.
-        It’s removed when you sign out of that phone.</li>
+        It’s removed when you sign out of that phone. If the phone is offline when you sign out, or you’re
+        signed out automatically, it isn’t removed straight away: the phone can still get your alerts until
+        someone signs in on it again (it then belongs to them) or you ask us to delete your account.</li>
     </ul>
 
     <h3>Plans and payments</h3>
@@ -86,11 +95,13 @@
 
     <h3>Camera and photos</h3>
     <ul>
-      <li><strong>Camera:</strong> used only while you’re scanning a barcode or taking a profile picture.
+      <li><strong>Camera:</strong> used only while you’re scanning a barcode or a receipt, or taking a profile picture.
         Barcodes are read on your phone: no pictures or video of them are saved or sent anywhere, and only the
         barcode number is kept, if you save it on an item. A profile picture you take is uploaded only if you
-        choose to use it, the same as one picked from your photos.</li>
-      <li><strong>Photos:</strong> used only when you choose a profile picture. We receive only the picture you pick.</li>
+        choose to use it, the same as one picked from your photos. A receipt photo is read on your phone and
+        never uploaded or saved by Shelf Life; only the lines you choose to add are kept, as items.</li>
+      <li><strong>Photos:</strong> used only when you choose a profile picture or a receipt photo. We receive only
+        the profile picture you pick; receipt photos stay on your phone.</li>
       <li>Both are optional. You can say no, or turn them off later in your phone’s settings.</li>
     </ul>
 
@@ -162,6 +173,7 @@
           <tr><td>Expo and Google (Firebase Cloud Messaging)</td><td>Delivering push alerts and app updates</td><td>Push tokens and the text of each alert; for updates, basic device and app version information</td></tr>
           <tr><td>RevenueCat</td><td>Managing subscriptions</td><td>Your Shelf Life account ID and purchase details</td></tr>
           <tr><td>Google Play</td><td>App downloads and payments</td><td>Under Google’s own privacy policy</td></tr>
+          <tr><td>Google (ML Kit)</td><td>Reading receipt text on your phone</td><td>Receipt photos and their text stay on your phone. ML Kit sends Google basic diagnostics: phone model, Android and app version, how long reading took, error codes and an installation identifier</td></tr>
         </tbody>
       </table>
     </div>
