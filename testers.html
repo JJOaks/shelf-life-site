@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Become a tester · Shelf Life</title>
+  <meta name="description" content="Help test Shelf Life, a shared food inventory for Android, and get Personal Gold free for a year.">
+  <meta property="og:title" content="Become a Shelf Life tester">
+  <meta property="og:description" content="Know what’s in the fridge, use it before it expires, and share one list with your household. Testers get Personal Gold free for a year.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .steps { counter-reset: step; list-style: none; padding: 0; }
+    .steps > li {
+      counter-increment: step; position: relative; padding: 16px 20px 16px 64px; margin: 12px 0;
+      background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    }
+    .steps > li::before {
+      content: counter(step); position: absolute; left: 18px; top: 16px; width: 32px; height: 32px;
+      border-radius: 16px; background: var(--brand); color: var(--bg); font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .steps h3 { margin: 0 0 4px; }
+    .button {
+      display: inline-block; margin-top: 8px; padding: 12px 20px; border-radius: 10px;
+      background: var(--brand); color: var(--bg); font-weight: 700; text-decoration: none;
+    }
+    .button:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; }
+    .gift { border-left: 5px solid var(--brand); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 12px 0; }
+    .grid div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
+    .grid strong { display: block; }
+    .small { color: var(--muted); font-size: 15px; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site">
+    <a class="name" href="./">Shelf Life</a>
+    <nav aria-label="Pages">
+      <a href="testers.html" aria-current="page">Become a tester</a>
+      <a href="terms.html">Terms of use</a>
+      <a href="privacy.html">Privacy policy</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <h1>Become a founding tester</h1>
+    <p class="lead">Shelf Life keeps track of what’s in your fridge and pantry, tells you what to use
+      before it goes bad, and shares one shopping list with everyone you live with.
+      Help test it before it launches on Google Play.</p>
+
+    <div class="box gift">
+      <h2 style="border:0;margin:0 0 4px;padding:0">Your thank-you: Personal Gold, free for a year</h2>
+      <p style="margin:0">Stay in the test for 14 days, use the app, and send us at least one piece of feedback
+        (a bug, an idea, anything). We’ll put your free group on <strong>Personal Gold for 12 months</strong>:
+        up to 12 people and 15 inventories.</p>
+    </div>
+
+    <h2>What you can do with it</h2>
+    <div class="grid">
+      <div><strong>Scan to add</strong>Scan a barcode or a whole receipt, and it fills in for you.</div>
+      <div><strong>Know what to use first</strong>Color-coded dates and a reminder before things expire.</div>
+      <div><strong>Share with your household</strong>Everyone sees the same fridge, pantry and freezer.</div>
+      <div><strong>One shopping list</strong>Used something up? It goes on the list. No more double milk.</div>
+    </div>
+
+    <h2>How to join (about 2 minutes)</h2>
+    <p class="small">You need an Android phone and a Google account (the one your phone uses for Google Play).</p>
+    <ol class="steps">
+      <li>
+        <h3>Join the testers group</h3>
+        <p>This adds your Google account to the test. Use the account your phone uses for Google Play.</p>
+        <a class="button" href="https://groups.google.com/g/shelf-life-testers">Join the group</a>
+      </li>
+      <li>
+        <h3>Become a tester</h3>
+        <p>Open this on your phone (or on a computer, signed in to the same Google account) and tap <strong>Become a tester</strong>.</p>
+        <a class="button" href="https://play.google.com/apps/testing/com.olson.shelflife">Become a tester</a>
+      </li>
+      <li>
+        <h3>Install Shelf Life</h3>
+        <p>Then install it from Google Play like any other app. If it says it isn’t available yet, wait a few minutes and try again.</p>
+        <a class="button" href="https://play.google.com/store/apps/details?id=com.olson.shelflife">Get it on Google Play</a>
+      </li>
+      <li>
+        <h3>Use it for 14 days</h3>
+        <p>Add what’s in your fridge or pantry, and use it like you normally would. Please stay in the test for at least
+          14 days: Google needs testers to stay before the app can launch for everyone.</p>
+      </li>
+    </ol>
+
+    <h2>Found a bug, or have an idea?</h2>
+    <p>In the app, go to <strong>More → Report a bug</strong>. It sends us a short report with everything we need.
+      For anything else, email <a href="mailto:shelflife.software@gmail.com?subject=Shelf%20Life%20tester">shelflife.software@gmail.com</a>.</p>
+
+    <h2>Questions</h2>
+    <h3>Does it cost anything?</h3>
+    <p>No. Every plan is free while Shelf Life is being tested, and nothing can be bought by accident.</p>
+    <h3>Is my data safe?</h3>
+    <p>Your inventories are only seen by the people you share them with. Read the <a href="privacy.html">privacy policy</a>.</p>
+    <h3>Can I leave?</h3>
+    <p>Any time: uninstall the app, or leave the test on the same <a href="https://play.google.com/apps/testing/com.olson.shelflife">testing page</a>.
+      You can <a href="delete-account.html">delete your account</a> too.</p>
+    <h3>What exactly is the thank-you?</h3>
+    <p class="small">Testers who stay in the test for 14 days in a row and send at least one piece of feedback get Personal Gold
+      on their free group for 12 months, starting when we set it up (usually within a week of you qualifying).
+      It doesn’t renew by itself and never charges you; afterwards your group goes back to Free unless you choose a plan.
+      One per person.</p>
+  </main>
+
+  <footer class="site">
+    <p>© 2026 Shelf Life · <a href="mailto:shelflife.software@gmail.com">shelflife.software@gmail.com</a></p>
+  </footer>
+</body>
+</html>
