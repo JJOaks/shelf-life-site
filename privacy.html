@@ -58,9 +58,9 @@
         lasts, and who last updated it), so scanning the same product again fills these in. Items in private
         inventories aren’t added to it: each private inventory keeps its own list instead, which only the
         people who can open that inventory can see, and which is deleted with the inventory.</li>
-      <li>Shared product suggestions: when groups owned by at least 5 different people have saved the same
-        barcode under the same name in shared inventories, that barcode’s name, unit, usual amount and how long
-        it lasts are suggested to anyone who scans it. Nothing else is shared: not who saved it, not notes, not
+      <li>Shared product suggestions: when groups owned by at least 2 different people have saved the same
+        barcode under the same name in shared inventories (or a Shelf Life team account has saved it), that
+        barcode’s name, brand, unit, usual amount and how long it lasts are suggested to anyone who scans it. Nothing else is shared: not who saved it, not notes, not
         group or inventory names, and nothing from private inventories. A group owner can turn this off for
         their group in Group settings → Product suggestions. Reports that details are wrong are kept with the
         reporter’s account and deleted with it.</li>
@@ -70,6 +70,13 @@
         example “GV 2% MLK GAL”) and the name, unit, amount and shelf life you gave it are remembered for your
         group, so the next receipt fills in by itself. Lines added to private inventories aren’t remembered.
         Receipt photos and prices aren’t kept.</li>
+      <li>Shared receipt-line names: when groups owned by at least 2 different people have given the same
+        printed receipt line the same name (or a Shelf Life team account has), that line’s name, unit, usual
+        amount and shelf life fill in for anyone who scans it. Names the AI suggests for a receipt line are kept
+        the same way, with only the printed line, so the same line isn’t sent to the AI again. Common receipt
+        abbreviations (“CRTN” for croutons) are learned from these names too. Nothing else is shared: not who
+        bought it, where or when, not group or inventory names, and nothing from private inventories or from
+        groups that turned off Product suggestions (turning it off takes their lines back out).</li>
       <li>When each group scanned receipts, and who scanned them (to see how much the feature is used; deleted after 3 months).</li>
       <li>Invitations you send and receive.</li>
       <li>Reports you send about other people (who, the reason and any details you add), and the people you block.</li>
@@ -135,6 +142,14 @@
       and your username, so we can find the problem. You see all of it before sending, and nothing is sent unless you
       send the email. We keep these emails only as long as we need them to fix the problem and reply to you.</p>
 
+    <h3>Ask Shelf Life and name fixing</h3>
+    <p>These are optional. When you ask a question or tap <strong>Fix names</strong> / <strong>Tidy name</strong>, the text is
+      sent to Anthropic, which runs the Claude AI that answers, as our service provider. To answer questions about your food,
+      the assistant looks up items in the inventories you can open (never anyone else’s) and sends what it finds along with
+      your question. Nothing is sent unless you use these features. We count how many times you use them each day, to apply the
+      daily limit, and keep those counts for a month. Conversations aren’t saved: they’re gone when you leave the screen.
+      Answers come from AI and can be wrong, so check anything important, especially dates.</p>
+
     <h3>What we don’t collect</h3>
     <p>We don’t collect your location, contacts, or anything for advertising. The app contains no ads,
       no usage analytics and no third-party tracking.</p>
@@ -180,6 +195,7 @@
           <tr><td>Expo and Google (Firebase Cloud Messaging)</td><td>Delivering push alerts and app updates</td><td>Push tokens and the text of each alert; for updates, basic device and app version information</td></tr>
           <tr><td>RevenueCat</td><td>Managing subscriptions</td><td>Your Shelf Life account ID and purchase details</td></tr>
           <tr><td>Google Play</td><td>App downloads and payments</td><td>Under Google’s own privacy policy</td></tr>
+          <tr><td>Anthropic (Claude)</td><td>Ask Shelf Life, and fixing product names, only when you use them</td><td>Your question and the conversation on that screen, the items it looks up for you (names, amounts, dates, inventory names), and the receipt lines or names you ask to fix</td></tr>
           <tr><td>Google (ML Kit)</td><td>Reading receipt text on your phone</td><td>Receipt photos and their text stay on your phone. ML Kit sends Google basic diagnostics: phone model, Android and app version, how long reading took, error codes and an installation identifier</td></tr>
         </tbody>
       </table>
