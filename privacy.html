@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy · Shelf Life</title>
   <meta name="description" content="What the Shelf Life app collects, why, who it's shared with, and how to delete it.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://ebxvcxdxijuygfoatgzl.supabase.co; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#2f6b4f">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='9.5' y='2.5' width='13' height='5' rx='1.6' fill='%232f6b4f'/%3E%3Crect x='5.75' y='8.75' width='20.5' height='20.5' rx='5.5' fill='white' stroke='%232f6b4f' stroke-width='2.5'/%3E%3Crect x='10' y='14.5' width='12' height='8' rx='2' fill='%232f6b4f'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -87,7 +89,7 @@
           inventories aren’t added to it: each private inventory keeps its own list instead, which only the
           people who can open that inventory can see, and which is deleted with the inventory.</li>
         <li>Shared product suggestions: when groups owned by at least 2 different people have saved the same
-          barcode under the same name in shared inventories (or a Shelf Life team account has saved it), that
+          barcode under the same name in shared inventories (or a trusted contributor has saved it), that
           barcode’s name, brand, unit, usual amount and how long it lasts are suggested to anyone who scans it. Nothing else is shared: not who saved it, not notes, not
           group or inventory names, and nothing from private inventories. A group owner can turn this off for
           their group in Group settings → Product suggestions. Reports that details are wrong are kept with the
@@ -98,10 +100,11 @@
           example “GV 2% MLK GAL”) and the name, unit, amount and shelf life you gave it are remembered for your
           group, so the next receipt fills in by itself. Lines added to private inventories aren’t remembered.
           Receipt photos and prices aren’t kept.</li>
-        <li>Shared receipt-line names: when groups owned by at least 2 different people have given the same
-          printed receipt line the same name (or a Shelf Life team account has), that line’s name, unit, usual
+        <li>Shared receipt-line names: when groups owned by at least 5 different people have given the same
+          printed receipt line the same name (or a trusted contributor has), that line’s name, unit, usual
           amount and shelf life fill in for anyone who scans it. Names the AI suggests for a receipt line are kept
-          the same way, with only the printed line, so the same line isn’t sent to the AI again. Common receipt
+          the same way, with only the printed line, so the same line isn’t sent to the AI again. Names containing offensive
+          words are never shared. Common receipt
           abbreviations (“CRTN” for croutons) are learned from these names too. Nothing else is shared: not who
           bought it, where or when, not group or inventory names, and nothing from private inventories or from
           groups that turned off Product suggestions (turning it off takes their lines back out).</li>
@@ -176,6 +179,12 @@
         and only we read it. To stop floods of fake reports, Cloudflare Turnstile checks you’re a person, and we keep a one-way
         scrambled code made from your connection’s address (never the address itself) for 2 days to limit how many reports
         one connection can send. Check-ins aren’t linked to your account unless the name you give is your username.</p>
+
+      <h3>Trusted contributor applications</h3>
+      <p>If you apply to become a trusted contributor in the app, we keep what you write, where you said you shop, and
+        whether it was approved. To decide, we look at your username, when you created your account and how many items
+        you’ve added. Approved contributors’ product and receipt names are shared with everyone straight away (still
+        without saying who saved them). Applications are kept until you delete your account.</p>
 
       <h3>Our website</h3>
       <p>This website doesn’t use cookies, analytics or tracking. Its pages load their typefaces from Google Fonts, so
