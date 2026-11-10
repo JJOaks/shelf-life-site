@@ -30,6 +30,46 @@
     .grid div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
     .grid strong { display: block; }
     .small { color: var(--muted); font-size: 15px; }
+    /* Daily check-in */
+    form.checkin { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; }
+    .field { margin: 0 0 18px; }
+    .field > label, .field legend { display: block; font-weight: 700; margin-bottom: 6px; }
+    .field .hint { display: block; font-weight: 400; color: var(--muted); font-size: 15px; }
+    .req { color: var(--muted); font-weight: 400; font-size: 15px; }
+    fieldset.field { border: 0; padding: 0; min-width: 0; }
+    .checkin input[type=text], .checkin input[type=date], .checkin textarea {
+      width: 100%; box-sizing: border-box; font: inherit; color: var(--text); background: var(--bg);
+      border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; min-height: 44px;
+    }
+    .checkin textarea { min-height: 120px; resize: vertical; }
+    .checkin textarea.main { min-height: 200px; }
+    .checkin input:focus-visible, .checkin textarea:focus-visible, .choices input:focus-visible + span, .stars input:focus-visible + span {
+      outline: 3px solid var(--brand); outline-offset: 2px;
+    }
+    .choices { display: flex; flex-wrap: wrap; gap: 8px; }
+    .choices label { position: relative; cursor: pointer; }
+    .choices input, .stars input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .choices span {
+      display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 20px;
+      border: 1px solid var(--line); background: var(--bg);
+    }
+    .choices input:checked + span { background: var(--brand); border-color: var(--brand); color: var(--bg); font-weight: 700; }
+    .choices input:checked + span::before { content: "✓ "; white-space: pre; }
+    .stars { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+    .stars label { position: relative; cursor: pointer; }
+    .stars label span { display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center;
+      font-size: 32px; line-height: 1; color: var(--muted); opacity: .45; border-radius: 8px; }
+    .stars label span.on { color: #c98f00; opacity: 1; }
+    .stars .said { margin-left: 8px; color: var(--muted); font-size: 15px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    button.button { border: 0; font: inherit; font-weight: 700; cursor: pointer; }
+    button.plain { background: transparent; color: var(--link); border: 1px solid var(--line); }
+    button[disabled] { opacity: .5; cursor: default; }
+    .status { margin: 12px 0 0; font-weight: 600; }
+    .status.bad { color: #b3261e; }
+    @media (prefers-color-scheme: dark) { .status.bad { color: #f2b8b5; } .stars label span.on { color: #f5c542; } }
+    .trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+    #turnstile { margin: 0 0 14px; min-height: 0; }
   </style>
 </head>
 <body>
@@ -38,6 +78,7 @@
     <a class="name" href="./">Shelf Life</a>
     <nav aria-label="Pages">
       <a href="testers.html" aria-current="page">Become a tester</a>
+      <a href="#check-in">Daily check-in</a>
       <a href="terms.html">Terms of use</a>
       <a href="privacy.html">Privacy policy</a>
     </nav>
@@ -70,6 +111,7 @@
       <li>
         <h3>Join the testers group</h3>
         <p>This adds your Google account to the test. Use the account your phone uses for Google Play.</p>
+        <!-- REPLACE: your Google Group's address (see the notes at the bottom of this file). -->
         <a class="button" href="https://groups.google.com/g/shelf-life-testers">Join the group</a>
       </li>
       <li>
@@ -88,6 +130,55 @@
           14 days: Google needs testers to stay before the app can launch for everyone.</p>
       </li>
     </ol>
+
+    <h2 id="check-in">Daily check-in</h2>
+    <p>Tell us how Shelf Life went today: daily if you can, or whenever you have something to say. Only your name,
+      the date and the main part are needed. It comes straight to us, and only we read it.</p>
+    <form class="checkin" id="checkin" novalidate>
+      <div class="field">
+        <label for="ci-name">Name <span class="req">(required)</span>
+          <span class="hint">Your Shelf Life username is best, so we can match it to your account.</span></label>
+        <input type="text" id="ci-name" name="name" maxlength="40" autocomplete="nickname" required>
+      </div>
+      <div class="field">
+        <label for="ci-date">Date <span class="req">(required)</span></label>
+        <input type="date" id="ci-date" name="date" required>
+      </div>
+      <fieldset class="field">
+        <legend>Total time in the app today</legend>
+        <div class="choices" id="ci-time"></div>
+      </fieldset>
+      <fieldset class="field">
+        <legend>What did you use it for? <span class="hint">Pick any.</span></legend>
+        <div class="choices" id="ci-reasons"></div>
+        <label for="ci-other" style="display:block;margin-top:10px;font-weight:400">Something else</label>
+        <input type="text" id="ci-other" name="otherReason" maxlength="100">
+      </fieldset>
+      <div class="field">
+        <label for="ci-body">How did it go? <span class="req">(required)</span>
+          <span class="hint">Your experience: what worked well, what was annoying or confusing, what you'd change,
+            anything that broke. Honest is most helpful.</span></label>
+        <textarea id="ci-body" name="body" class="main" maxlength="5000" required></textarea>
+      </div>
+      <fieldset class="field">
+        <legend>Overall, how was it today?</legend>
+        <div class="stars" id="ci-stars"></div>
+      </fieldset>
+      <div class="field">
+        <label for="ci-outro">Other thoughts, questions or concerns</label>
+        <textarea id="ci-outro" name="outro" maxlength="3000"></textarea>
+      </div>
+      <div class="trap" aria-hidden="true">
+        <label for="ci-website">Leave this empty</label>
+        <input type="text" id="ci-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <div id="turnstile"></div>
+      <div class="actions">
+        <button type="submit" class="button" id="ci-send">Send check-in</button>
+        <button type="button" class="button plain" id="ci-copy">Copy as text</button>
+      </div>
+      <p class="status" id="ci-status" role="status" aria-live="polite"></p>
+    </form>
 
     <h2>Found a bug, or have an idea?</h2>
     <p>In the app, go to <strong>More → Report a bug</strong>. It sends us a short report with everything we need.
@@ -111,5 +202,160 @@
   <footer class="site">
     <p>© 2026 Shelf Life · <a href="mailto:shelflife.software@gmail.com">shelflife.software@gmail.com</a></p>
   </footer>
+  <script>
+  // Daily check-in: sent to the tester-report Edge Function (database file 45),
+  // which saves it and emails it to us. The site key below is public.
+  (function () {
+    var ENDPOINT = 'https://ebxvcxdxijuygfoatgzl.supabase.co/functions/v1/tester-report';
+    var SITE_KEY = '0x4AAAAAAFr4QhzUGJZVrLt6';
+    var TIMES = ['Under 5 minutes', '5–15 minutes', '15–30 minutes', '30–60 minutes', 'Over an hour'];
+    var REASONS = ['Added groceries', 'Checked what’s expiring', 'Scanned a barcode', 'Scanned a receipt',
+      'Used the shopping list', 'Shared with my household', 'Asked Shelf Life (AI)', 'Just exploring'];
+    var STAR_WORDS = ['', 'Poor', 'Not great', 'Okay', 'Good', 'Great'];
+    var form = document.getElementById('checkin');
+    var status = document.getElementById('ci-status');
+    var send = document.getElementById('ci-send');
+    var token = '';
+    var widget = null;
+
+    function el(tag, attrs, text) {
+      var e = document.createElement(tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      if (text) e.textContent = text;
+      return e;
+    }
+    function choice(box, type, name, value, text) {
+      var label = el('label');
+      label.appendChild(el('input', { type: type, name: name, value: value }));
+      label.appendChild(el('span', {}, text || value));
+      box.appendChild(label);
+    }
+    TIMES.forEach(function (t) { choice(document.getElementById('ci-time'), 'radio', 'timeUsed', t); });
+    REASONS.forEach(function (r) { choice(document.getElementById('ci-reasons'), 'checkbox', 'reasons', r); });
+
+    var stars = document.getElementById('ci-stars');
+    for (var n = 1; n <= 5; n++) {
+      var label = el('label');
+      label.appendChild(el('input', { type: 'radio', name: 'rating', value: String(n), 'aria-label': n + (n === 1 ? ' star' : ' stars') + ', ' + STAR_WORDS[n] }));
+      label.appendChild(el('span', { 'aria-hidden': 'true' }, '★'));
+      stars.appendChild(label);
+    }
+    var said = el('span', { 'class': 'said', 'aria-hidden': 'true' }, 'Not rated');
+    stars.appendChild(said);
+    function paintStars() {
+      var v = Number((form.querySelector('input[name=rating]:checked') || {}).value || 0);
+      stars.querySelectorAll('label span').forEach(function (s, i) { s.className = i < v ? 'on' : ''; });
+      said.textContent = v ? v + ' of 5 · ' + STAR_WORDS[v] : 'Not rated';
+    }
+    stars.addEventListener('change', paintStars);
+
+    function today() {
+      var d = new Date();
+      return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+    document.getElementById('ci-date').value = today();
+    try { document.getElementById('ci-name').value = localStorage.getItem('shelfLifeTesterName') || ''; } catch (e) {}
+
+    function read() {
+      var f = new FormData(form);
+      return {
+        name: (f.get('name') || '').trim(),
+        date: f.get('date') || '',
+        timeUsed: f.get('timeUsed') || '',
+        reasons: f.getAll('reasons'),
+        otherReason: (f.get('otherReason') || '').trim(),
+        body: (f.get('body') || '').trim(),
+        rating: f.get('rating') ? Number(f.get('rating')) : null,
+        outro: (f.get('outro') || '').trim(),
+        website: f.get('website') || ''
+      };
+    }
+    function asText(r) {
+      var used = r.reasons.slice();
+      if (r.otherReason) used.push('Other: ' + r.otherReason);
+      var star = r.rating ? '★★★★★'.slice(0, r.rating) + '☆☆☆☆☆'.slice(0, 5 - r.rating) + ' (' + r.rating + ' of 5)' : '(not given)';
+      return ['SHELF LIFE TESTER CHECK-IN', '',
+        'Name:        ' + (r.name || '(not given)'),
+        'Date:        ' + r.date,
+        'Time in app: ' + (r.timeUsed || '(not given)'),
+        'Used it to:  ' + (used.length ? used.join(', ') : '(not given)'), '',
+        'EXPERIENCE', r.body || '(not given)', '',
+        'OVERALL: ' + star, '',
+        'OTHER THOUGHTS / QUESTIONS', r.outro || '(none)'].join('\n');
+    }
+    function say(text, bad) { status.textContent = text; status.className = 'status' + (bad ? ' bad' : ''); }
+    function problem(r) {
+      if (!r.name) return ['ci-name', 'Please add your name or Shelf Life username.'];
+      if (!r.date) return ['ci-date', 'Please choose the date.'];
+      if (r.body.length < 10) return ['ci-body', 'Please tell us a little about how it went (at least a sentence).'];
+      return null;
+    }
+
+    document.getElementById('ci-copy').addEventListener('click', function () {
+      var text = asText(read());
+      var done = function () { say('Copied. Paste it anywhere, like our Discord or an email.'); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { say('Couldn’t copy here. Please select the text and copy it yourself.', true); });
+      } else {
+        say('Couldn’t copy here. Please select the text and copy it yourself.', true);
+      }
+    });
+
+    window.shelfLifeTurnstile = function () {
+      if (!window.turnstile || SITE_KEY.indexOf('REPLACE') === 0) return;
+      widget = turnstile.render('#turnstile', {
+        sitekey: SITE_KEY,
+        theme: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+        callback: function (t) { token = t; },
+        'expired-callback': function () { token = ''; },
+        'error-callback': function () { token = ''; }
+      });
+    };
+
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var r = read();
+      var p = problem(r);
+      if (p) { say(p[1], true); document.getElementById(p[0]).focus(); return; }
+      if (!token) { say('Please finish the security check just above the Send button, then send again.', true); return; }
+      r.token = token;
+      send.disabled = true;
+      say('Sending…');
+      fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(r) })
+        .then(function (res) { return res.json().catch(function () { return {}; }).then(function (j) { return { ok: res.ok, j: j }; }); })
+        .then(function (x) {
+          if (!x.ok) throw new Error(x.j.error || 'Something went wrong. Please try again.');
+          try { localStorage.setItem('shelfLifeTesterName', r.name); } catch (e) {}
+          ['ci-body', 'ci-outro', 'ci-other'].forEach(function (id) { document.getElementById(id).value = ''; });
+          form.querySelectorAll('input[type=radio], input[type=checkbox]').forEach(function (i) { i.checked = false; });
+          paintStars();
+          say('Thank you! Your check-in was sent. See you tomorrow.');
+        })
+        .catch(function (e) {
+          say((e && e.message ? e.message : 'Couldn’t send.') + ' You can also use “Copy as text” and email it to shelflife.software@gmail.com.', true);
+        })
+        .then(function () {
+          send.disabled = false;
+          token = '';
+          if (widget !== null && window.turnstile) turnstile.reset(widget);
+        });
+    });
+  })();
+  </script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=shelfLifeTurnstile" async defer></script>
 </body>
 </html>
+<!--
+  Setting this page up (delete nothing; this note isn't shown):
+  1. Create a Google Group for testers: https://groups.google.com → Create group.
+     Name: Shelf Life testers. Who can join: "Anyone on the web can ask" or "Anyone can join".
+  2. Play Console → Test and release → Testing → Closed testing → your track → Testers →
+     add the group's email (e.g. shelf-life-testers@googlegroups.com). Save.
+  3. Replace REPLACE-WITH-YOUR-GROUP above with the group's short name (the end of its web address).
+  4. Daily check-in: replace REPLACE-WITH-TURNSTILE-SITE-KEY in the script near the end with your
+     Turnstile site key (public; the same one as EXPO_PUBLIC_TURNSTILE_SITE_KEY). The check-in needs
+     database file 45 and the tester-report Edge Function (see LAUNCH.md 3k).
+  5. Upload this file to the shelf-life-site repository.
+  The "Become a tester" link only works once the closed test is published and the person's
+  account is on the list (step 2 does that for everyone in the group).
+-->

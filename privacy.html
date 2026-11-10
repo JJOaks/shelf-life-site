@@ -20,7 +20,7 @@
 
   <main id="main">
     <h1>Privacy Policy</h1>
-    <p class="updated">Effective November 8, 2026</p>
+    <p class="updated">Effective November 10, 2026</p>
 
     <p class="lead">Shelf Life is an app for keeping a shared food inventory. This policy explains what
       information the app collects, why, who can see it, and how to delete it. In this policy “Shelf Life”,
@@ -142,6 +142,13 @@
       and your username, so we can find the problem. You see all of it before sending, and nothing is sent unless you
       send the email. We keep these emails only as long as we need them to fix the problem and reply to you.</p>
 
+    <h3>Tester check-ins</h3>
+    <p>The <strong>Daily check-in</strong> form on our testers page sends us what you write: the name you give, the date, how long
+      you used the app, what you used it for, your comments and your star rating. It’s saved in our database and emailed to us,
+      and only we read it. To stop floods of fake reports, Cloudflare Turnstile checks you’re a person, and we keep a one-way
+      scrambled code made from your connection’s address (never the address itself) for 2 days to limit how many reports
+      one connection can send. Check-ins aren’t linked to your account unless the name you give is your username.</p>
+
     <h3>Ask Shelf Life and name fixing</h3>
     <p>These are optional. When you ask a question or tap <strong>Fix names</strong> / <strong>Tidy name</strong>, the text is
       sent to Anthropic, which runs the Claude AI that answers, as our service provider. To answer questions about your food,
@@ -189,7 +196,8 @@
         <tbody>
           <tr><td>Supabase</td><td>Database, sign-in and file storage</td><td>Everything stored by the app</td></tr>
           <tr><td>Google (Gmail)</td><td>Sending account emails (confirming your email, password resets)</td><td>Your email address and the email</td></tr>
-          <tr><td>Cloudflare (Turnstile)</td><td>Checking you’re not a robot</td><td>Information about your phone and connection</td></tr>
+          <tr><td>Cloudflare (Turnstile)</td><td>Checking you’re not a robot (in the app, and on the tester check-in form)</td><td>Information about your phone or browser and connection</td></tr>
+          <tr><td>Resend</td><td>Emailing tester check-ins to us</td><td>The check-in you send</td></tr>
           <tr><td>Have I Been Pwned</td><td>Checking new passwords against known leaks</td><td>The first 5 characters of a password hash (never the password)</td></tr>
           <tr><td>Sentry</td><td>Crash reports</td><td>Error details, phone model, Android and app version</td></tr>
           <tr><td>Expo and Google (Firebase Cloud Messaging)</td><td>Delivering push alerts and app updates</td><td>Push tokens and the text of each alert; for updates, basic device and app version information</td></tr>
@@ -211,6 +219,8 @@
       <li>Offline copies on your phone: until you sign out, or uninstall the app.</li>
       <li>Notifications in the app: deleted 90 days after you’ve read them, and any after a year.</li>
       <li>Crash reports: up to 90 days.</li>
+      <li>Tester check-ins: up to a year after Shelf Life launches publicly (email us to delete yours sooner). The scrambled
+        connection code: 2 days.</li>
       <li>Reports: up to a year after we’ve reviewed them. The person reported is never told who reported them.</li>
       <li>Blocks: until you unblock the person, or either account is deleted.</li>
       <li>Profile pictures: deleted when you change or remove your picture, or ask to delete your account.</li>
