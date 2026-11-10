@@ -115,8 +115,7 @@
       <li>
         <h3>Join the testers group</h3>
         <p>This adds your Google account to the test. Use the account your phone uses for Google Play.</p>
-        <!-- REPLACE: your Google Group's address (see the notes at the bottom of this file). -->
-        <a class="button" href="https://groups.google.com/g/REPLACE-WITH-YOUR-GROUP">Join the group</a>
+        <a class="button" href="https://groups.google.com/g/shelf-life-testers/about">Join the group</a>
       </li>
       <li>
         <h3>Become a tester</h3>
@@ -231,7 +230,7 @@
   // which saves it and emails it to us. The site key below is public.
   (function () {
     var ENDPOINT = 'https://ebxvcxdxijuygfoatgzl.supabase.co/functions/v1/tester-report';
-    var SITE_KEY = 'REPLACE-WITH-TURNSTILE-SITE-KEY';
+    var SITE_KEY = '0x4AAAAAAFr4QhzUGJZVrLt6';
     var TIMES = ['Under 5 minutes', '5–15 minutes', '15–30 minutes', '30–60 minutes', 'Over an hour'];
     var REASONS = ['Added groceries', 'Checked what’s expiring', 'Scanned a barcode', 'Scanned a receipt',
       'Used the shopping list', 'Shared with my household', 'Asked Shelf Life (AI)', 'Just exploring'];
@@ -369,17 +368,3 @@
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=shelfLifeTurnstile" async defer></script>
 </body>
 </html>
-<!--
-  Setting this page up (delete nothing; this note isn't shown):
-  1. Create a Google Group for testers: https://groups.google.com → Create group.
-     Name: Shelf Life testers. Who can join: "Anyone on the web can ask" or "Anyone can join".
-  2. Play Console → Test and release → Testing → Closed testing → your track → Testers →
-     add the group's email (e.g. shelf-life-testers@googlegroups.com). Save.
-  3. Replace REPLACE-WITH-YOUR-GROUP above with the group's short name (the end of its web address).
-  4. Daily check-in: replace REPLACE-WITH-TURNSTILE-SITE-KEY in the script near the end with your
-     Turnstile site key (public; the same one as EXPO_PUBLIC_TURNSTILE_SITE_KEY). The check-in needs
-     database file 45 and the tester-report Edge Function (see LAUNCH.md 3k).
-  5. Upload this file to the shelf-life-site repository.
-  The "Become a tester" link only works once the closed test is published and the person's
-  account is on the list (step 2 does that for everyone in the group).
--->
