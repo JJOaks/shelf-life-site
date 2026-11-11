@@ -208,6 +208,29 @@
         it off, or a group turning off Product suggestions, takes your prices back out. Prices are deleted after 2
         years, or with your account.</p>
 
+      <h3>Finding stores and planning a trip</h3>
+      <p>When you use <strong>Plan a shopping trip</strong> or <strong>Find it on the map</strong>, the address, city or
+        ZIP code you type is sent once to a map service to find that place and the grocery stores near it. <strong>We don’t
+        save that address</strong>, on your phone or on our servers, and we don’t log it. The stores shown come from
+        our store list (grocery chains’ own store locations, published by All the Places, and stores people added) and
+        from the map service; the map service’s stores are shown, not saved. We count how many store searches each person makes per day, to keep within the map service’s limits,
+        but not where. The plan itself (which stores, the route) is worked out on your phone. Opening the route sends the
+        stops and your starting point to Google Maps, under Google’s privacy policy. Your phone remembers your distance,
+        stops and priority choices, and the kinds and brands you picked, never the address.</p>
+
+      <h3>Regional prices</h3>
+      <p>Where no store nearby has a price for something, Shelf Life may show the U.S. Bureau of Labor Statistics’ average
+        price for it in your region (for example, a gallon of milk in the Midwest). This is public government data; we
+        only use which state your stores are in to pick the region.</p>
+
+      <h3>Matching barcodes to receipt lines</h3>
+      <p>To learn which barcode each receipt line is, without asking you, Shelf Life keeps for each household (group): when a
+        receipt was added, the store’s chain and the lines printed on it; and when barcodes were added to its shared inventories.
+        Lines that keep turning up with the same barcode are matched for that household. A match is shared with everyone (as
+        “this line at this chain is this product”) once 3 households’ scans agree on their own, with no one’s name, trips or
+        dates. Nothing from private inventories is used, groups that turned off Product suggestions keep their matches to
+        themselves, and trips and scan times are deleted after 400 days.</p>
+
       <h3>Keeping shared names honest</h3>
       <p>Shared product and receipt names, and typical prices, count only one vote per person. To check that, we use when your account
         was created, whether your email is confirmed, and how many items you and your groups have added. The app also
@@ -276,6 +299,7 @@
             <tr><td>Cloudflare (Turnstile)</td><td>Checking you’re not a robot (in the app, and on the tester check-in form)</td><td>Information about your phone or browser and connection</td></tr>
             <tr><td>Google Fonts</td><td>Typefaces on our website</td><td>Your connection’s address and browser details</td></tr>
             <tr><td>Resend</td><td>Emailing tester check-ins to us</td><td>The check-in you send</td></tr>
+            <tr><td>Geoapify, and OpenStreetMap’s Nominatim and Overpass services</td><td>Finding a place you type and grocery stores near it</td><td>The address, city or ZIP you type, and the area searched (not saved by us)</td></tr>
             <tr><td>Have I Been Pwned</td><td>Checking new passwords against known leaks</td><td>The first 5 characters of a password hash (never the password)</td></tr>
             <tr><td>Sentry</td><td>Crash reports</td><td>Error details, phone model, Android and app version</td></tr>
             <tr><td>Expo and Google (Firebase Cloud Messaging)</td><td>Delivering push alerts and app updates</td><td>Push tokens and the text of each alert; for updates, basic device and app version information</td></tr>
