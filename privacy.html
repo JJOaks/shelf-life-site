@@ -259,7 +259,11 @@
       <h3>Ask Shelf Life, reading receipts and name fixing</h3>
       <p>These are optional. When you scan a receipt, the photo stays on your phone: the phone reads its text, leaves out card,
         account, approval and survey lines, and sends the rest (the store, what you bought and the prices) to be read. When you
-        ask a question or tap <strong>Fix names</strong> / <strong>Tidy name</strong>, that text is sent too. It goes to Anthropic, which runs the Claude AI that answers, as our service provider. To answer questions about your food,
+        ask a question or tap <strong>Fix names</strong> / <strong>Tidy name</strong>, that text is sent too. To compare prices by kind,
+        the names on a shopping list you plan a trip for, and the names you add from a receipt, may be sent (just the names) so
+        the ones Shelf Life doesn’t recognize can be sorted into kinds (for example “Folgers” is coffee); the answer is kept for
+        everyone, without who asked. If you correct what something is, your household keeps that answer, and it counts
+        anonymously toward everyone’s. It goes to Anthropic, which runs the Claude AI that answers, as our service provider. To answer questions about your food,
         the assistant looks up items in the inventories you can open (never anyone else’s) and sends what it finds along with
         your question. Nothing is sent unless you use these features. We count how many times you use them each day, to apply the
         daily limit, and keep those counts for a month. Conversations aren’t saved: they’re gone when you leave the screen.
@@ -313,7 +317,7 @@
             <tr><td>Expo and Google (Firebase Cloud Messaging)</td><td>Delivering push alerts and app updates</td><td>Push tokens and the text of each alert; for updates, basic device and app version information</td></tr>
             <tr><td>RevenueCat</td><td>Managing subscriptions</td><td>Your Shelf Life account ID and purchase details</td></tr>
             <tr><td>Google Play</td><td>App downloads and payments</td><td>Under Google’s own privacy policy</td></tr>
-            <tr><td>Anthropic (Claude)</td><td>Reading receipts, Ask Shelf Life, and fixing product names, only when you use them</td><td>A scanned receipt’s text without payment details, your question and the conversation on that screen, the items it looks up for you (names, amounts, dates, inventory names), and the names you ask to fix</td></tr>
+            <tr><td>Anthropic (Claude)</td><td>Reading receipts, Ask Shelf Life, fixing product names, and sorting names into kinds, only when you use them</td><td>A scanned receipt’s text without payment details, your question and the conversation on that screen, the items it looks up for you (names, amounts, dates, inventory names), the names you ask to fix, and shopping list or receipt names to sort into kinds</td></tr>
             <tr><td>Google (ML Kit)</td><td>Reading receipt text on your phone</td><td>Receipt photos and their text stay on your phone. ML Kit sends Google basic diagnostics: phone model, Android and app version, how long reading took, error codes and an installation identifier</td></tr>
           </tbody>
         </table>
