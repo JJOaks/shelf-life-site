@@ -88,7 +88,7 @@
           lasts, and who last updated it), so scanning the same product again fills these in. Items in private
           inventories aren’t added to it: each private inventory keeps its own list instead, which only the
           people who can open that inventory can see, and which is deleted with the inventory.</li>
-        <li>Shared product suggestions: when groups owned by at least 2 different people have saved the same
+        <li>Shared product suggestions: when several different households have saved the same
           barcode under the same name in shared inventories (or a trusted contributor has saved it), that
           barcode’s name, brand, unit, usual amount and how long it lasts are suggested to anyone who scans it. Nothing else is shared: not who saved it, not notes, not
           group or inventory names, and nothing from private inventories. A group owner can turn this off for
@@ -100,7 +100,7 @@
           example “GV 2% MLK GAL”) and the name, unit, amount and shelf life you gave it are remembered for your
           group, so the next receipt fills in by itself. Lines added to private inventories aren’t remembered.
           Receipt photos and prices aren’t kept.</li>
-        <li>Shared receipt-line names: when groups owned by at least 5 different people have given the same
+        <li>Shared receipt-line names: when several different households have given the same
           printed receipt line the same name (or a trusted contributor has), that line’s name, unit, usual
           amount and shelf life fill in for anyone who scans it. Names the AI suggests for a receipt line are kept
           the same way, with only the printed line, so the same line isn’t sent to the AI again. Names containing offensive
@@ -200,23 +200,22 @@
         itself (names and addresses) can be seen by everyone, with nobody’s name on it.</p>
       <p><strong>Sharing prices is off unless you turn it on</strong> (“Share prices anonymously”). When it’s on,
         your prices help work out a typical price for something at a store. Others only ever see that typical price
-        (the middle value), how many people it’s based on and the week, and only once at least 5 different people
-        have shared one in the last 120 days: never your price, your name, or the day or time you shopped. The
-        exception is a trusted contributor (someone who applied and was approved): their newest shared price is shown
-        as the typical price until 5 people have shared one, labeled as coming from a trusted contributor, without
-        their name. Turning
+        (the middle value) and the week, and only once several different people have shared one recently: never
+        your price, your name, or the day or time you shopped. A trusted contributor’s (someone who applied and was
+        approved) shared price can be shown as the typical price before then, without their name. Turning
         it off, or a group turning off Product suggestions, takes your prices back out. Prices are deleted after 2
         years, or with your account.</p>
 
       <h3>Finding stores and planning a trip</h3>
-      <p>When you use <strong>Plan a shopping trip</strong> or <strong>Find it on the map</strong>, the address, city or
+      <p>When you use <strong>Plan the trip</strong> or <strong>Find it on the map</strong>, the address, city or
         ZIP code you type is sent once to a map service to find that place and the grocery stores near it. <strong>We don’t
-        save that address</strong>, on your phone or on our servers, and we don’t log it. The stores shown come from
+        save that address on our servers</strong>, and we don’t log it. The stores shown come from
         our store list (grocery store locations published by All the Places and by the Overture Maps Foundation, and stores people added) and
         from the map service; the map service’s stores are shown, not saved. We count how many store searches each person makes per day, to keep within the map service’s limits,
         but not where. The plan itself (which stores, the route) is worked out on your phone. Opening the route sends the
-        stops and your starting point to Google Maps, under Google’s privacy policy. Your phone remembers your distance,
-        stops and priority choices, and the kinds and brands you picked, never the address.</p>
+        stops and your starting point to Google Maps, under Google’s privacy policy. Your phone remembers your starting
+        address, distance, stops and priority, and the kinds and brands you picked, so the next trip is one tap: these
+        stay on your phone only. Ticking something off on the finished trip list ticks it off your group’s shopping list.</p>
       <p class="small">Store locations include data from the Overture Maps Foundation
         (<a href="https://overturemaps.org">overturemaps.org</a>), used under the
         <a href="https://cdla.dev/permissive-2-0/">Community Data License Agreement – Permissive 2.0</a>
@@ -232,11 +231,11 @@
       <p>To learn which barcode each receipt line is, without asking you, Shelf Life keeps for each household (group): when a
         receipt was added, the store’s chain and the lines printed on it; and when barcodes were added to its shared inventories.
         Lines that keep turning up with the same barcode are matched for that household. A match is shared with everyone (as
-        “this line at this chain is this product”) once 3 households’ scans agree on their own, with no one’s name, trips or
+        “this line at this chain is this product”) once several households’ scans agree on their own, with no one’s name, trips or
         dates. Nothing from private inventories is used, groups that turned off Product suggestions keep their matches to
         themselves, and trips and scan times are deleted after 400 days. When you scan items while putting a receipt
         away and tap which line a barcode is, that choice is kept for your household (and counts toward sharing the
-        match, the same way, once 2 households agree).</p>
+        match, the same way).</p>
 
       <h3>Keeping shared names honest</h3>
       <p>Shared product and receipt names, and typical prices, count only one vote per person. To check that, we use when your account
