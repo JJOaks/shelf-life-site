@@ -28,7 +28,7 @@
   <main id="main">
     <div class="page-head">
     <h1>Privacy Policy</h1>
-    <p class="updated">Effective November 13, 2026 (updated)</p>
+    <p class="updated">Effective November 15, 2026 (updated)</p>
 
     <p class="lead">Shelf Life is an app for keeping a shared food inventory. This policy explains what
       information the app collects, why, who can see it, and how to delete it. In this policy “Shelf Life”,
@@ -90,7 +90,9 @@
           people who can open that inventory can see, and which is deleted with the inventory.</li>
         <li>Shared product suggestions: when several different households have saved the same
           barcode under the same name in shared inventories (or a trusted contributor has saved it), that
-          barcode’s name, brand, unit, usual amount and how long it lasts are suggested to anyone who scans it. Nothing else is shared: not who saved it, not notes, not
+          barcode’s standard name, brand, unit, usual amount and how long it lasts are suggested to anyone who scans it.
+          The standard name is written by Shelf Life’s AI from what those households saved and how receipts print it;
+          the names people typed themselves aren’t shown to anyone else. Nothing else is shared: not who saved it, not notes, not
           group or inventory names, and nothing from private inventories. A group owner can turn this off for
           their group in Group settings → Product suggestions. Reports that details are wrong are kept with the
           reporter’s account and deleted with it.</li>
@@ -101,8 +103,8 @@
           group, so the next receipt fills in by itself. Lines added to private inventories aren’t remembered.
           Receipt photos and prices aren’t kept.</li>
         <li>Shared receipt-line names: when several different households have given the same
-          printed receipt line the same name (or a trusted contributor has), that line’s name, unit, usual
-          amount and shelf life fill in for anyone who scans it. Names the AI suggests for a receipt line are kept
+          printed receipt line the same name (or a trusted contributor has), that line’s standard name (written by
+          the AI from what they gave it, never their own wording), unit, usual amount and shelf life fill in for anyone who scans it. Names the AI suggests for a receipt line are kept
           the same way, with only the printed line, so the same line isn’t sent to the AI again. Names containing offensive
           words are never shared. Common receipt
           abbreviations (“CRTN” for croutons) are learned from these names too. Nothing else is shared: not who
@@ -197,8 +199,10 @@
         calendar; you can get a new one or turn it off at any time in the app.</p>
 
       <h3>Prices and stores</h3>
-      <p>When you add things from a scanned receipt, the price paid for each line is kept, but only when you give the
-        store’s name and full address (street, city, state, ZIP) and the item’s brand (or choose “No brand”). The brand
+      <p>When you add things from a scanned receipt, or type what you paid while putting something away from your
+        shopping list, the price is kept, but only when you give the
+        store’s name and full address (street, city, state, ZIP) and the item’s brand (or choose “No brand”). When the
+        receipt shows it was on sale, its regular price is kept with it, so typical prices aren’t thrown off by sales. The brand
         is also remembered with that receipt line for your group. You and the people in that group can see these prices; prices from
         a private inventory are only for you. Stores you used are remembered for you to pick again; the list of stores
         itself (names and addresses) can be seen by everyone, with nobody’s name on it.</p>
@@ -240,14 +244,18 @@
         dates. Nothing from private inventories is used, groups that turned off Product suggestions keep their matches to
         themselves, and trips and scan times are deleted after 400 days. When you scan items while putting a receipt
         away and tap which line a barcode is, that choice is kept for your household (and counts toward sharing the
-        match, the same way).</p>
+        match, the same way). What the AI read on each receipt line (the product’s name, brand and size) is also kept for
+        your household, so a product’s brand and size are only shared once several households’ receipts agree; these
+        readings are deleted after 400 days, and none come from private inventories.</p>
 
       <h3>Keeping shared names honest</h3>
       <p>Shared product and receipt names, and typical prices, count only one vote per person. To check that, we use when your account
         was created, whether your email is confirmed, and how many items you and your groups have added. The app also
         sends Android’s app-specific ID for your phone (it can’t be used by other apps and changes after a factory
         reset); we keep only a scrambled code made from it with a secret, never the ID itself, so accounts made on the
-        same phone count once. These codes are deleted with your account.</p>
+        same phone count once. We also count how often an account’s receipt-line matches agree with other households’,
+        and accounts whose matches keep disagreeing stop counting toward what’s shared. These codes and counts are deleted
+        with your account.</p>
 
       <h3>Trusted contributor applications</h3>
       <p>If you apply to become a trusted contributor in the app, we keep what you write, where you said you shop, and
@@ -267,7 +275,8 @@
         the names on a shopping list you plan a trip for, and the names you add from a receipt, may be sent (just the names) so
         the ones Shelf Life doesn’t recognize can be sorted into kinds (for example “Folgers” is coffee); the answer is kept for
         everyone, without who asked. To keep kinds tidy, a few of these saved names (never who added them) may be sent again
-        to check whether two kinds are the same. If you correct what something is, your household keeps that answer, and it counts
+        to check whether two kinds are the same. To write a product’s standard name, what several households saved for a
+        barcode or receipt line, and how receipts print it, may be sent (never who saved it). If you correct what something is, your household keeps that answer, and it counts
         anonymously toward everyone’s. It goes to Anthropic, which runs the Claude AI that answers, as our service provider. To answer questions about your food,
         the assistant looks up items in the inventories you can open (never anyone else’s) and sends what it finds along with
         your question. Nothing is sent unless you use these features. We count how many times you use them each day, to apply the
