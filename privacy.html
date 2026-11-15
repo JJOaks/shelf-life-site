@@ -44,11 +44,13 @@
             <li><a href="#collect">What we collect</a></li>
             <li><a href="#use">How we use it</a></li>
             <li><a href="#who-sees">Who can see your information</a></li>
+            <li><a href="#where">Where your information is stored</a></li>
             <li><a href="#keep">How long we keep it</a></li>
             <li><a href="#delete">Deleting your account</a></li>
             <li><a href="#rights">Your choices and rights</a></li>
             <li><a href="#security">Security</a></li>
             <li><a href="#children">Children</a></li>
+            <li><a href="#au-ca">Australia and Canada</a></li>
             <li><a href="#changes">Changes to this policy</a></li>
             <li><a href="#contact">Contact</a></li>
             </ol>
@@ -64,6 +66,7 @@
           <li>We don’t show ads, we don’t use analytics or tracking tools, and we never sell your information.</li>
           <li>People in your groups see what you share with them. Private inventories stay private.</li>
           <li>You can delete your account in the app at any time, or ask us by email.</li>
+          <li>Your information is stored and processed in the United States.</li>
         </ul>
       </div>
 
@@ -202,7 +205,7 @@
       <h3>Prices and stores</h3>
       <p>When you add things from a scanned receipt, or type what you paid while putting something away from your
         shopping list, the price is kept, but only when you give the
-        store’s name and full address (street, city, state, ZIP) and the item’s brand (or choose “No brand”). When the
+        store’s name and full address (street, city, state or province, and ZIP or postcode) and the item’s brand (or choose “No brand”). When the
         receipt shows it was on sale, its regular price is kept with it, so typical prices aren’t thrown off by sales. The brand
         is also remembered with that receipt line for your group. You and the people in that group can see these prices; prices from
         a private inventory are only for you. Stores you used are remembered for you to pick again; the list of stores
@@ -217,7 +220,7 @@
 
       <h3>Finding stores and planning a trip</h3>
       <p>When you use <strong>Plan the trip</strong> or <strong>Find it on the map</strong>, the address, city or
-        ZIP code you type is sent to a map service (Geoapify) to find that place and the grocery stores near it; while you
+        ZIP code or postcode you type is sent to a map service (Geoapify), with your country, to find that place and the grocery stores near it; while you
         type a starting address, what you've typed so far is also sent to it to suggest matching addresses. <strong>We don’t
         save that address on our servers</strong>, and we don’t log it. The stores shown come from
         our store list (grocery store locations published by All the Places and by the Overture Maps Foundation, and stores people added) and
@@ -232,10 +235,16 @@
         and the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>, and from
         All the Places (<a href="https://alltheplaces.xyz">alltheplaces.xyz</a>, CC0).</p>
 
+      <h3>Your country</h3>
+      <p>Shelf Life works in the United States, Australia and Canada. We keep which of these you’re in (set from your
+        phone’s language and time zone the first time, and changed in More → Country), so you see stores and prices from
+        your country, in its dollars. We don’t use your location for this.</p>
+
       <h3>Regional prices</h3>
-      <p>Where no store nearby has a price for something, Shelf Life may show the U.S. Bureau of Labor Statistics’ average
-        price for it in your region (for example, a gallon of milk in the Midwest). This is public government data; we
-        only use which state your stores are in to pick the region.</p>
+      <p>Where no store nearby has a price for something, Shelf Life may show a government average price for it in your
+        region: in the US, the U.S. Bureau of Labor Statistics’ (for example, a gallon of milk in the Midwest); in Canada,
+        Statistics Canada’s, by province. This is public government data; we only use your country and which state or
+        province your stores are in to pick the region.</p>
 
       <h3>Matching barcodes to receipt lines</h3>
       <p>To learn which barcode each receipt line is, without asking you, Shelf Life keeps for each household (group): when a
@@ -305,6 +314,20 @@
       </ul>
       <p>We don’t use your information for advertising, and we don’t sell it or share it for anyone else’s marketing.</p>
 
+      <h3>Automated features</h3>
+      <p>Some things in the app are worked out by computer, without a person checking each one:</p>
+      <ul>
+        <li>The AI (Claude, from Anthropic) reads receipts, suggests where things go and how long they keep, writes
+          standard product names and sorts names into kinds.</li>
+        <li>Rules in our database decide when a product name, receipt-line match or typical price has enough agreement
+          to be shared, and stop counting an account whose matches keep disagreeing with other households’.</li>
+        <li>Your plan decides the app’s limits for your group, such as how many receipts can be sorted with AI each month.</li>
+      </ul>
+      <p>These only fill in or suggest details about food and prices. None of them decide anything about you that has a
+        legal or similarly significant effect, such as access to credit, housing or a job. Suggestions can be wrong: you
+        can change any of them, and you can switch receipt sorting off (More → Privacy). If you think one of them has treated
+        you unfairly, email us and a person will look at it.</p>
+
       <h2 id="who-sees">Who can see your information</h2>
       <ul>
         <li><strong>People in your groups</strong> see your display name, username and profile picture,
@@ -337,12 +360,21 @@
             <tr><td>Expo and Google (Firebase Cloud Messaging)</td><td>Delivering push alerts and app updates</td><td>Push tokens and the text of each alert; for updates, basic device and app version information</td></tr>
             <tr><td>RevenueCat</td><td>Managing subscriptions</td><td>Your Shelf Life account ID and purchase details</td></tr>
             <tr><td>Google Play</td><td>App downloads and payments</td><td>Under Google’s own privacy policy</td></tr>
-            <tr><td>Anthropic (Claude)</td><td>Reading receipts, Ask Shelf Life, fixing product names, and sorting names into kinds, only when you use them</td><td>A scanned receipt’s text without payment details (with your group’s inventory and section names when receipt sorting is on, never private inventories), your question and the conversation on that screen, the items it looks up for you (names, amounts, dates, inventory names), the names you ask to fix, and shopping list or receipt names to sort into kinds</td></tr>
+            <tr><td>Anthropic (Claude)</td><td>Reading receipts, Ask Shelf Life, fixing product names, and sorting names into kinds, only when you use them</td><td>A scanned receipt’s text without payment details, and your country (with your group’s inventory and section names when receipt sorting is on, never private inventories), your question and the conversation on that screen, the items it looks up for you (names, amounts, dates, inventory names), the names you ask to fix, and shopping list or receipt names to sort into kinds</td></tr>
             <tr><td>Google (ML Kit)</td><td>Reading receipt text on your phone</td><td>Receipt photos and their text stay on your phone. ML Kit sends Google basic diagnostics: phone model, Android and app version, how long reading took, error codes and an installation identifier</td></tr>
           </tbody>
         </table>
       </div>
-      <p>These providers may process information in the United States and other countries.</p>
+
+      <h2 id="where">Where your information is stored</h2>
+      <p>Shelf Life is run from the United States. Our database and the service providers above store and process
+        information mainly in the <strong>United States</strong>, and some may also process it in other countries where they
+        or their own providers operate. If you live outside the United States (for example in Australia or Canada), using
+        the app means your information is sent to and kept in the United States, where it’s protected by this policy and
+        by our agreements with these providers, but where local courts and authorities may be able to get access to it
+        under U.S. law.</p>
+      <p>We choose providers that commit to protecting the information they handle for us and to using it only to provide
+        their service, and we send each one only what its job needs.</p>
 
       <h2 id="keep">How long we keep it</h2>
       <ul>
@@ -375,8 +407,11 @@
       <ul>
         <li>See and change your details in the app (Your profile, and Account &amp; security).</li>
         <li>Turn notifications and reminders off in Notifications &amp; reminders, or in your phone’s settings.</li>
-        <li>Ask us for a copy of your information, to correct it, or to delete it, by emailing us.
-          We’ll reply within 30 days.</li>
+        <li>Ask us for a copy of your information (including in a common computer format you can take elsewhere), to
+          correct it, or to delete it, by emailing us. We’ll reply within 30 days, and it’s free.</li>
+        <li>Turn off optional features at any time, such as sharing prices, Product suggestions, receipt sorting with AI,
+          or the phone calendar link. Turning one off stops it from then on.</li>
+        <li>Complain to us if you think we’ve mishandled your information. We’ll look into it and reply within 30 days.</li>
       </ul>
       <p>Depending on where you live, you may have further rights under local law. Email us to use them.</p>
 
@@ -387,14 +422,42 @@
 
       <h2 id="children">Children</h2>
       <p>Shelf Life isn’t meant for children under 13, and we don’t knowingly collect information from them.
+        In Quebec, children under 14 may use it only with a parent’s or guardian’s consent.
         If you believe a child has given us information, email us and we’ll delete it.</p>
+
+      <h2 id="au-ca">Australia and Canada</h2>
+      <p>This section adds to the rest of the policy for people in Australia and Canada.</p>
+      <h3>Who is responsible</h3>
+      <p>The owner of Shelf Life is responsible for protecting your personal information, and is the person in charge of
+        the protection of personal information (privacy officer). Contact:
+        <a href="mailto:shelflife.software@gmail.com">shelflife.software@gmail.com</a>, with “Privacy” in the subject.</p>
+      <h3>Sending information overseas</h3>
+      <p>Your information is likely to be sent to, and kept in, the <strong>United States</strong> (see
+        <a href="#where">Where your information is stored</a>). Everything we collect, as described in this policy, may be
+        sent there. Some providers may also process it in other countries where they operate.</p>
+      <h3>Seeing, correcting and complaining</h3>
+      <p>You can ask to see or correct the personal information we hold about you, or ask us to delete it, by emailing us
+        (see <a href="#rights">Your choices and rights</a>). If you have a complaint about how we’ve handled your
+        information, email us first and we’ll reply within 30 days. If you’re not happy with our answer, you can complain to:</p>
+      <ul>
+        <li><strong>Australia:</strong> the Office of the Australian Information Commissioner (OAIC),
+          <a href="https://www.oaic.gov.au">oaic.gov.au</a>.</li>
+        <li><strong>Canada:</strong> the Office of the Privacy Commissioner of Canada,
+          <a href="https://www.priv.gc.ca">priv.gc.ca</a>.</li>
+        <li><strong>Quebec:</strong> the Commission d’accès à l’information du Québec,
+          <a href="https://www.cai.gouv.qc.ca">cai.gouv.qc.ca</a>.</li>
+      </ul>
+      <h3>Staying anonymous</h3>
+      <p>You don’t have to use your real name: your username and display name can be anything that follows our
+        <a href="terms.html">Terms of use</a>. We need an email address only to sign you in and keep your account secure.</p>
 
       <h2 id="changes">Changes to this policy</h2>
       <p>If we change this policy, we’ll update the date at the top. For important changes we’ll also tell
         you in the app before they take effect.</p>
 
       <h2 id="contact">Contact</h2>
-      <p>Questions or requests: <a href="mailto:shelflife.software@gmail.com">shelflife.software@gmail.com</a></p>
+      <p>Questions, requests or complaints: <a href="mailto:shelflife.software@gmail.com">shelflife.software@gmail.com</a>.
+        This address also reaches our privacy officer (the owner of Shelf Life).</p>
       </div>
     </div>
   </main>
