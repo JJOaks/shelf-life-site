@@ -96,7 +96,8 @@
           group or inventory names, and nothing from private inventories. A group owner can turn this off for
           their group in Group settings → Product suggestions. Reports that details are wrong are kept with the
           reporter’s account and deleted with it.</li>
-        <li>Each group’s shopping list: what’s on it, amounts, notes, who added each thing and who ticked it off.
+        <li>Each group’s shopping list: what’s on it, amounts, notes, who added each thing and who ticked it off. A thing
+          made private to a private inventory is seen only by people who can see that inventory.
           Ticked-off things are deleted after 30 days, or sooner when someone clears them.</li>
         <li>What receipt lines turned out to be: when you check a scanned receipt, each line’s printed text (for
           example “GV 2% MLK GAL”) and the name, unit, amount and shelf life you gave it are remembered for your
@@ -246,7 +247,10 @@
         away and tap which line a barcode is, that choice is kept for your household (and counts toward sharing the
         match, the same way). What the AI read on each receipt line (the product’s name, brand and size) is also kept for
         your household, so a product’s brand and size are only shared once several households’ receipts agree; these
-        readings are deleted after 400 days, and none come from private inventories.</p>
+        readings are deleted after 400 days, and none come from private inventories. So your household doesn’t add the same
+        receipt twice (on two phones, say), a scrambled code made from the receipt’s printed date and time (or its lines and
+        prices) is kept with that receipt’s record; the date and time themselves aren’t kept, and the code is deleted with the
+        record after 400 days.</p>
 
       <h3>Keeping shared names honest</h3>
       <p>Shared product and receipt names, and typical prices, count only one vote per person. To check that, we use when your account
@@ -275,7 +279,9 @@
         the names on a shopping list you plan a trip for, and the names you add from a receipt, may be sent (just the names) so
         the ones Shelf Life doesn’t recognize can be sorted into kinds (for example “Folgers” is coffee); the answer is kept for
         everyone, without who asked. To keep kinds tidy, a few of these saved names (never who added them) may be sent again
-        to check whether two kinds are the same. To write a product’s standard name, what several households saved for a
+        to check whether two kinds are the same. When “Sort receipts with AI” is on (More → Privacy; it is unless you
+        switch it off), the names of your group’s inventories and their sections are sent with a receipt’s text, so the AI
+        can suggest where each thing goes and how long it keeps; private inventories are never sent. To write a product’s standard name, what several households saved for a
         barcode or receipt line, and how receipts print it, may be sent (never who saved it). If you correct what something is, your household keeps that answer, and it counts
         anonymously toward everyone’s. It goes to Anthropic, which runs the Claude AI that answers, as our service provider. To answer questions about your food,
         the assistant looks up items in the inventories you can open (never anyone else’s) and sends what it finds along with
@@ -331,7 +337,7 @@
             <tr><td>Expo and Google (Firebase Cloud Messaging)</td><td>Delivering push alerts and app updates</td><td>Push tokens and the text of each alert; for updates, basic device and app version information</td></tr>
             <tr><td>RevenueCat</td><td>Managing subscriptions</td><td>Your Shelf Life account ID and purchase details</td></tr>
             <tr><td>Google Play</td><td>App downloads and payments</td><td>Under Google’s own privacy policy</td></tr>
-            <tr><td>Anthropic (Claude)</td><td>Reading receipts, Ask Shelf Life, fixing product names, and sorting names into kinds, only when you use them</td><td>A scanned receipt’s text without payment details, your question and the conversation on that screen, the items it looks up for you (names, amounts, dates, inventory names), the names you ask to fix, and shopping list or receipt names to sort into kinds</td></tr>
+            <tr><td>Anthropic (Claude)</td><td>Reading receipts, Ask Shelf Life, fixing product names, and sorting names into kinds, only when you use them</td><td>A scanned receipt’s text without payment details (with your group’s inventory and section names when receipt sorting is on, never private inventories), your question and the conversation on that screen, the items it looks up for you (names, amounts, dates, inventory names), the names you ask to fix, and shopping list or receipt names to sort into kinds</td></tr>
             <tr><td>Google (ML Kit)</td><td>Reading receipt text on your phone</td><td>Receipt photos and their text stay on your phone. ML Kit sends Google basic diagnostics: phone model, Android and app version, how long reading took, error codes and an installation identifier</td></tr>
           </tbody>
         </table>
